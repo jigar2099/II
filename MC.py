@@ -25,13 +25,9 @@ class MC_set:
         data_X = []
         data_y = []
         for i in range(self.max_Rate):
-            #print('samle_len : ', len(shape_list))
-            #print('rate : ', i)
-            #print('samp_size : ', self.sample_size)
             X,y = mc(shape_list, i, self.exe, self.sample_size).MC2()
             data_X.append(X)
             data_y.append(y)
-        #data_X, data_y = mc(shape_list,2,10,100).MC2()
         data_X = np.array(data_X); data_X = data_X.reshape(self.exe*self.max_Rate, self.sample_size)
         data_y = np.array(data_y); data_y = data_y.reshape(self.exe*self.max_Rate, self.sample_size)
         return data_X, data_y
